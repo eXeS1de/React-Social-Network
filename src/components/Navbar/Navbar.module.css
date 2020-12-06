@@ -1,0 +1,8 @@
+li {
+    list-style: none;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: blue;
+}

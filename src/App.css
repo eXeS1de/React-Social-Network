@@ -10,34 +10,5 @@
   grid-template-columns: 2fr 10fr;
   grid-template-rows: 60px 1fr;
   gap: 5px;
-  grid-template-areas: 
-  'header header' 
-  'nav content';
-}
-
-li {
-  list-style: none;
-}
-
-.header {
-  grid-area: header;
-  background-color:black;
-}
-
-header img {
-  width: 60px
-}
-
-.nav {
-  grid-area: nav;
-  background-color: blue;
-}
-
-.content {
-  grid-area: content;
-  background-color: blueviolet;
-}
-
-.content img {
-  height: 850px;
+  grid-template-areas: 'header header' 'nav content';
 }
