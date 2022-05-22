@@ -1,8 +1,14 @@
-li {
-    list-style: none;
+.item a {
+    color: white;
+    text-decoration: none;
 }
 
 .nav {
     grid-area: nav;
     background-color: blue;
+    padding: 10px 0 10px 10px;
+}
+
+.item a.active {
+    color: gold;
 }

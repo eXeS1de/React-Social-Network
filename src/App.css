@@ -12,3 +12,16 @@
   gap: 5px;
   grid-template-areas: 'header header' 'nav content';
 }
+
+.app-wrapper-content {
+    grid-area: content;
+    background: linear-gradient(to right, blueviolet, rgb(165, 22, 129));
+}
+
+.app-wrapper-content img {
+    height: 500px;
+}
+
+.app-wrapper-content > div {
+    padding: 10px 10px 10px 10px;
+}
