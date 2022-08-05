@@ -1,37 +1,52 @@
 import React from "react";
-import { addPostAC, updateNewPostAC } from "../../../redux/reducers/profileReducer";
+import { Field, Form, Formik } from "formik";
 import css from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    let posts = 
-        props.state.posts.map( p => <Post message={p.message} likesCount={p.likesCount}/> )
+    let posts = props.posts.map( p => <Post message={p.message} likesCount={p.likesCount} key={p.id} /> )
 
-    let newPost = React.createRef();
-
-    let addPost = () => {
-        props.dispatch(addPostAC());
-    }
-    
-    let onPostChange = () => {
-        let postText = newPost.current.value;
-        let action = updateNewPostAC(postText);
-        props.dispatch(action);
+    const addPost = (newPost) => {
+        props.addPost(newPost)
     }
 
     return (
         <div>
-            My Posts
-            <div>
-                <textarea onChange={onPostChange} ref={newPost}
-                    value={props.state.newPostText}></textarea>
-                <button onClick={addPost}>Add Post</button>
+            <div className={css.description}>
+                My Posts
             </div>
+            <AddPostForm onSubmit={addPost}/>
             <div className={css.posts}>
                 {posts}
             </div>
         </div>
     );
 };
+
+const AddPostForm = (props) => {
+    return (
+        <Formik
+            initialValues={{ post: '' }}
+            onSubmit={(values, { setSubmitting }) => {
+                props.onSubmit(values.post)
+                values.post = ''
+                setSubmitting(false)
+            }}
+            >
+            {({ isSubmitting }) => (
+                <Form>
+                    <div>
+                        <Field type="text" name="post" as="textarea" placeholder="Add Your Post" />
+                    </div>
+                    <div>
+                        <button type="submit" disabled={isSubmitting}>
+                            Add Post
+                        </button>
+                    </div>                    
+                </Form>
+            )}
+        </Formik>
+    )
+}
 
 export default MyPosts;

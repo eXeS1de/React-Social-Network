@@ -6,3 +6,23 @@
 header img {
     width: 60px
 }
+
+.login_wrapper {
+    float: right;
+    margin-top: 10px;
+    margin-right: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.logout {
+    float: right;
+    margin-top: 5px;
+}
+
+.login_link {
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+    color: white;
+}

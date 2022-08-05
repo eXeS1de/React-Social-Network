@@ -1,15 +1,18 @@
 import React from 'react'
+import MyPostsContainer from './MyPosts/MyPostsContainer'
+import ProfileStatus from './ProfileStatus/ProfileStatus'
 import css from './Profile.module.css'
-import MyPosts from './MyPosts/MyPosts'
 
 const Profile = (props) => {
     return (
         <div>
-            <img src='https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg' alt='bg' />
             <div>
-                ava + description
+                {props.profile?.photos?.large ? <img src={props.profile.photos.large} alt='avatar' /> : null}
             </div>
-            <MyPosts state={props.state} dispatch={props.dispatch} />
+            <div className={css.status}>
+                <ProfileStatus {...props} />
+            </div>
+            <MyPostsContainer />
         </div>
     )
 }
