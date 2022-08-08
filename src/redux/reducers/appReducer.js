@@ -11,7 +11,7 @@ const appReducer = (state = initialState, action) => {
         case INITIALIZED_SUCCESS:
             return {
                 ...state,
-               initialState: true
+                initialized: true
             }
         default:
             return state;
